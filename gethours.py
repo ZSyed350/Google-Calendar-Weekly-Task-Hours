@@ -25,19 +25,7 @@ credentials = service_account.Credentials.from_service_account_file(
 )
 
 # Initialize the service
-try:
-    service = build('calendar', 'v3', credentials=credentials)
-    # Verify credentials by fetching the list of calendars
-    calendars_result = service.calendarList().list().execute()
-    calendars = calendars_result.get('items', [])
-    if calendars:
-        print("Credentials verified successfully. Available calendars:")
-        for calendar in calendars:
-            print(f"- {calendar['summary']} (ID: {calendar['id']})")
-    else:
-        print("Credentials verified, but no calendars found.")
-except Exception as e:
-    print(f"Error verifying credentials: {e}")
+service = build('calendar', 'v3', credentials=credentials)
 
 # Get the start and end of the week (Monday morning to Friday night)
 now = datetime.now()
@@ -78,7 +66,10 @@ def get_study_hours():
 
 if __name__ == '__main__':
     study_hours = get_study_hours()
+    total = 0
     with open(OUTPUT_PATH, "w") as file:
         for day, hours in study_hours.items():
             print(f"{day}: {hours:.2f} hours")
-            file.write(f"{day}: {hours:.2f} hours\n")
+            total += hours
+    print(f"Total hours: {total:.2f} hours")
+
