@@ -1,6 +1,9 @@
 # Fetch Weekly Task Hours from Google Calendar
 
-This script retrieves and calculates the total hours spent on a specified task from a Google Calendar for the current week (Monday to Friday). This can help you refine your time blocking, analyze where your time is going, or help you gain a realistic perspective on your plans, ensuring your schedule is achievable. It uses the Google Calendar API and requires a service account for authentication.
+This project is a tool to help timeblockers analyze their time spend on specific tasks in a given week. It can help to refine your time blocking by informing you how many hours per weekday are blocked for a given task in the current week, according to your Google calendar. It uses the Google Calendar API and requires a service account for authentication.
+
+Example use case:
+As a student, I make "study" blocks on my Google calendar, for uninterrupted hours I have to study. This script tells me how many hours I have to study per day. I add this information to my weekly to-do list, and ensure that the work I have planned is realistic for the amount of time I have to study each day.
 
 ## Prerequisites
 - Python 3.7 or higher
